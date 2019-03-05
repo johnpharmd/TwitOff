@@ -1,0 +1,16 @@
+{% block head %}
+     	 	<link rel="stylesheet" href="style.css">
+<title>{% block title %}{% endblock %} TwitOff @johnpharmd version</title>
+{% endblock %}
+<div id="content">{
+	{% block content %}
+	<ul>
+	    {% for user in users %}
+            <li>{{ user.id }} - {{ user.name }}</li>
+            {% endfor %}
+</ul>
+{% endblock %}</div>
+<div id="footer">
+        {% block footer %}
+Created 2019 by <a href="https://johnpharmd.github.io/">johnpharmd</a>.
+{% endblock %}</div>
