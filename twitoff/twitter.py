@@ -15,8 +15,8 @@ BASILICA = basilica.Connection(config('BASILICA_KEY'))
 
 
 def create_tweet_db():
-    # DB.drop_all()
-    # DB.create_all()
+    DB.drop_all()
+    DB.create_all()
     twitter_user = TWITTER.get_user('johnpharmd')
     tweets = twitter_user.timeline(count=200, exclude_replies=True, include_rts=False, tweet_mode='extended')
     db_user = User(id=twitter_user.id, name=twitter_user.screen_name, newest_tweet_id=tweets[0].id)
