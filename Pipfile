@@ -11,6 +11,9 @@ flask-sqlalchemy = "*"
 python-dotenv = "*"
 sklearn = "*"
 numpy = "*"
+tweepy = "*"
+basilica = "*"
+python-decouple = "*"
 
 [requires]
 python_version = "3.7"
