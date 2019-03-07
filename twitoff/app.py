@@ -17,8 +17,10 @@ def create_app():
     @app.route('/')
     def root():
         users = User.query.all()
-        return render_template('baseone.html', title='Home', users=users)
-    
+        tweets = Tweet.query.all()
+        return render_template('baseone.html', title='Home', users=users,
+                               tweets=tweets)
+
     @app.route('/user', methods=['POST'])
     @app.route('/user/<name>', methods=['GET'])
     def user(name=None):
@@ -40,7 +42,7 @@ def create_app():
         user1, user2 = request.values['user1'], request.values['user2']
         tweeted = request.values['tweet_text']
         if user1 == user2:
-            return 'Cannot compare a user to themself!'
+            return 'Cannot  compare a user to themself!'
         else:
             # 'prediction' changed to 'y, proba' -- HT SL/LSDS01
             y, proba = predict_user(user1, user2,
