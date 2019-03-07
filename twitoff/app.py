@@ -1,7 +1,7 @@
 """Main application and routing logic for TwitOff."""
 from decouple import config
 from flask import Flask, render_template, request
-from .models import DB, User, Tweet
+from .models import DB, User
 from .predict import predict_user
 from .twitter import add_or_update_user
 
@@ -17,9 +17,9 @@ def create_app():
     @app.route('/')
     def root():
         users = User.query.all()
-        tweets = Tweet.query.all()
-        return render_template('baseone.html', title='Home', users=users,
-                               tweets=tweets)
+        # tweets = Tweet.query.all()
+        return render_template('baseone.html', title='Home', users=users)
+                               #, tweets=tweets)
 
     @app.route('/user', methods=['POST'])
     @app.route('/user/<name>', methods=['GET'])
