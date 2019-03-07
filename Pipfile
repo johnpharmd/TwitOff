@@ -16,6 +16,7 @@ basilica = "*"
 python-decouple = "*"
 gunicorn = "*"
 psycopg2 = "*"
+heroku = "*"
 
 [requires]
 python_version = "3.7"
